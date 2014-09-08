@@ -206,5 +206,4 @@ public class UserDao {
 			System.out.println("user2 exist");}*/
 		
 	}
-
 }
