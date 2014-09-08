@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Movie</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>controller.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateServlet</servlet-name>
+    <servlet-class>controller.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReviewServlet</servlet-name>
+    <servlet-class>controller.ReviewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LikeServlet</servlet-name>
+    <servlet-class>controller.LikeServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>controller.UserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ActorServlet</servlet-name>
+    <servlet-class>controller.ActorServlet</servlet-class>
+  </servlet>
+</web-app>
