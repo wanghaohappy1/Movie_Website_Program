@@ -17,8 +17,8 @@ import model.*;
 @WebServlet("/UpdateServlet")
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 	RequestDispatcher dispatcher = null;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		String title = request.getParameter("title");
@@ -35,24 +35,19 @@ public class UpdateServlet extends HttpServlet {
 		newMovie.setDescription(description);
 		newMovie.setRottenTomatoesId(rottenId);
 		newMovie.setGeneric(classify);
-
-		
 		MovieDao movieDao = new MovieDao();
-		if ("add".equals(action)){
+		
+		if ("add".equals(action)) {
 			movieDao.createMovie(newMovie);
 			dispatcher = request.getRequestDispatcher("Update.jsp");
 			dispatcher.forward(request, response);
-			}
-		else if("update".equals(action)){
+	        } else if ("update".equals(action)){
 			String id = request.getParameter("id");
 			int movieId = Integer.parseInt(id);
 			movieDao.updateMovie(movieId, newMovie);
 			dispatcher = request.getRequestDispatcher("Update.jsp");
 			dispatcher.forward(request, response);	 
 		}
-		
-		
-	
 	}
 
 	/**
