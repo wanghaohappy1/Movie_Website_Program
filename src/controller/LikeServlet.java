@@ -18,13 +18,12 @@ import model.*;
 @WebServlet("/LikeServlet")
 public class LikeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	RequestDispatcher dispatcher = null;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String stars = request.getParameter("stars");
 		int movieId = Integer.parseInt(request.getParameter("movieId"));
-		 
 		
 		UserDao userDao = new UserDao();
 		int userId = userDao.findUserId(username);
@@ -35,12 +34,10 @@ public class LikeServlet extends HttpServlet {
 		
 		review.setUser(user);
 		review.setStar(stars);
-		
 		reviewDao.createReview(userId,movieId,review);
 		
 		dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
     /**
