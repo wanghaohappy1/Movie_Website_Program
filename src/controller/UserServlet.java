@@ -19,8 +19,8 @@ import model.UserDao;
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	RequestDispatcher dispatcher = null;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -28,6 +28,7 @@ public class UserServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String dateOfBirth = request.getParameter("dateOfBirth");
 		String email = request.getParameter("email");
+		
 		UserDao userDao = new UserDao();
 		User user = new User();
 		user.setPassword(password);
@@ -36,11 +37,10 @@ public class UserServlet extends HttpServlet {
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		userDao.updateUser(username, user);
-				
+		
 		dispatcher = request.getRequestDispatcher("UserProfile.jsp");
 		dispatcher.forward(request, response);
-		
-		}
+	}
 
     /**
      * @see HttpServlet#HttpServlet()
