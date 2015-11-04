@@ -19,10 +19,9 @@ import model.*;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	RequestDispatcher dispatcher = null;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String action = request.getParameter("action");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -31,7 +30,6 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String dateOfBirth = request.getParameter("dateOfBirth");
 		String gender = request.getParameter("gender");
-
 
 		User user = new User();
 		user.setUsername(username);
@@ -43,10 +41,9 @@ public class RegisterServlet extends HttpServlet {
 		user.setGender(gender);
 
 		UserDao userDao = new UserDao();
-
 		boolean success = userDao.createUser(user);
 
-		if(success) {
+		if (success) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("currentUser", user);
 			dispatcher = request.getRequestDispatcher("Movie.jsp");
