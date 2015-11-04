@@ -20,8 +20,8 @@ import model.*;
 @WebServlet("/ReviewServlet")
 public class ReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	RequestDispatcher dispatcher = null;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String comment = request.getParameter("comment");
@@ -29,20 +29,20 @@ public class ReviewServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		int movieId = Integer.parseInt(request.getParameter("movieId"));
 		 
-		if("comment".equals(action)){
-		UserDao userDao = new UserDao();
-		int userId = userDao.findUserId(username);
-		User user = userDao.getUser(userId);
+		if ("comment".equals(action)) {
+		        UserDao userDao = new UserDao();
+		        int userId = userDao.findUserId(username);
+		        User user = userDao.getUser(userId);
 		
-		ReviewDao reviewDao = new ReviewDao();
-		Review review = new Review();
+		        ReviewDao reviewDao = new ReviewDao();
+		        Review review = new Review();
 		
-		review.setReviews(comment);
-		review.setUser(user);
-		review.setStar(stars);
+	       	        review.setReviews(comment);
+		        review.setUser(user);
+		        review.setStar(stars);
 		
-		reviewDao.createReview(userId,movieId,review);
-		}else{
+		        reviewDao.createReview(userId,movieId,review);
+		} else {
 			UserDao userDao = new UserDao();
 			int userId = userDao.findUserId(username);
 			User user = userDao.getUser(userId);
@@ -56,10 +56,8 @@ public class ReviewServlet extends HttpServlet {
 			
 			reviewDao.createReview(userId,movieId,review);
 		}
-		
 		dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
     /**
