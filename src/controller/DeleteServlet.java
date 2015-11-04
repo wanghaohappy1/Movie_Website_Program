@@ -27,8 +27,7 @@ public class DeleteServlet extends HttpServlet {
 			movieDao.deleteMovie(movieId);
 			dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 			dispatcher.forward(request, response);
-			}
-		else if("change".equals(action)){
+		} else if ("change".equals(action)){
 			String id = request.getParameter("id");
 			String newId=request.getParameter("newIdd");
 			int movieId = Integer.parseInt(id);
@@ -38,10 +37,10 @@ public class DeleteServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 			dispatcher.forward(request, response);
 			 
-		}else if("edit".equals(action)){
+		}else if ("edit".equals(action)){
 			dispatcher = request.getRequestDispatcher("Update.jsp");
 			dispatcher.forward(request, response);
-		}else if("description".equals(action)){
+		}else if ("description".equals(action)){
 			dispatcher = request.getRequestDispatcher("MovieDetail.jsp");
 			dispatcher.forward(request, response);
 		}
