@@ -15,9 +15,6 @@ public class ActorDao {
 	public void template() {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
-
-
-
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -26,9 +23,7 @@ public class ActorDao {
 	{
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
-
 		em.persist(newActor);
-
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -39,10 +34,9 @@ public class ActorDao {
 		List<Actor> actors = new ArrayList<Actor>();
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
-		
 		actors = getAllActors();
-		for (Actor actor : actors)
-		{
+		
+		for (Actor actor : actors) {
 			if (actor.getName().equals(actorname))
 				actorId = actor.getId();
 		}
@@ -61,8 +55,8 @@ public class ActorDao {
 		actor.setName(newActor.getName());
 		actor.setRottenTomatoesId(newActor.getRottenTomatoesId());
 		actor.setCasts(newActor.getCasts());
+		
 		em.merge(newActor);
-
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -91,7 +85,6 @@ public class ActorDao {
 
 		em.getTransaction().commit();
 		em.close();
-		
 		return casts;
 	}
 	
@@ -101,7 +94,6 @@ public class ActorDao {
 		List<Cast> casts = new ArrayList<Cast>();
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
-
 		Actor actor = em.find(Actor.class, actorId);
 		casts = actor.getCasts();
 		
@@ -113,22 +105,18 @@ public class ActorDao {
 
 		em.getTransaction().commit();
 		em.close();
-		
 		return movies;
 	}
-
-	public static void main(String[] args) {
+        
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ActorDao dao = new ActorDao();
 		Actor actor1 = new Actor();
 		actor1.setName("justin bieber");
 		actor1.setRottenTomatoesId("222");
 		actor1.setId(2);
-		
 		//dao.updateActor(actor1,2);
 		System.out.println(dao.findActorId(""));
-		
-
-	}
+	}*/
 
 }
