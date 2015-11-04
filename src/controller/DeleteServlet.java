@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import model.*;
 
 /**
@@ -17,11 +16,10 @@ import model.*;
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 	RequestDispatcher dispatcher = null;
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		
 		MovieDao movieDao = new MovieDao();
 		if ("delete".equals(action)){
 			String id = request.getParameter("id");		
@@ -47,9 +45,6 @@ public class DeleteServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("MovieDetail.jsp");
 			dispatcher.forward(request, response);
 		}
-		
-		
-	
 	}
     /**
      * @see HttpServlet#HttpServlet()
