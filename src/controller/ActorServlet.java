@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import model.*;
 
 /**
- * Servlet implementation class LikeServlet
+ * Servlet implementation class ActorServlet
  */
 @WebServlet("/ActorServlet")
 public class ActorServlet extends HttpServlet {
