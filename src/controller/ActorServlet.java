@@ -82,7 +82,7 @@ public class ActorServlet extends HttpServlet {
 		character_3.setCharactorName(character3);
 		character_3.setMovie(mymovie);
 		
-		if(castDao.findcast(character1)==true && actorDao.findActorId(actor1) !=0 ){
+		if(castDao.findcast(character1) == true && actorDao.findActorId(actor1) != 0 ){
 		    dispatcher = request.getRequestDispatcher("SearchDetail.jsp");
 		    dispatcher.forward(request, response);
 		}else{
