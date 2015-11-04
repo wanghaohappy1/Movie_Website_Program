@@ -37,10 +37,10 @@ public class DeleteServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 			dispatcher.forward(request, response);
 			 
-		}else if ("edit".equals(action)){
+		} else if ("edit".equals(action)){
 			dispatcher = request.getRequestDispatcher("Update.jsp");
 			dispatcher.forward(request, response);
-		}else if ("description".equals(action)){
+		} else if ("description".equals(action)){
 			dispatcher = request.getRequestDispatcher("MovieDetail.jsp");
 			dispatcher.forward(request, response);
 		}
