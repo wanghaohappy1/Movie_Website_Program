@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.*;
 
 /**
- * Servlet implementation class DeleteServlet
+ * Servlet implementation class UpdateServlet
  */
 @WebServlet("/UpdateServlet")
 public class UpdateServlet extends HttpServlet {
