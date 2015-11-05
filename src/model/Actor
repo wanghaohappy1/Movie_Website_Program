@@ -64,15 +64,12 @@ public class Actor implements Serializable {
 	public Cast addCast(Cast cast) {
 		getCasts().add(cast);
 		cast.setActor(this);
-
 		return cast;
 	}
 
 	public Cast removeCast(Cast cast) {
 		getCasts().remove(cast);
 		cast.setActor(null);
-
 		return cast;
 	}
-
 }
