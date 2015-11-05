@@ -23,23 +23,24 @@ import controller.*;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-        private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	RequestDispatcher dispatcher = null;
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
+
 		UserDao userDao = new UserDao();
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
-		
-		boolean checkUser=userDao.verifyUser(user);
-		boolean checkDeveloper=userDao.verifyDeveloper(user);
+
+		boolean checkUser = userDao.verifyUser(user);
+		boolean checkDeveloper = userDao.verifyDeveloper(user);
 		HttpSession session = request.getSession(true);
-		
-		if(checkDeveloper) {
+
+		if (checkDeveloper) {
 			session.setAttribute("currentUser", user);
 			dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 			dispatcher.forward(request, response);
