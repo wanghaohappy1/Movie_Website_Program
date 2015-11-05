@@ -17,7 +17,7 @@
 				<div id="logo">
 					<img src="Image/movies.jpg" width=260px />
 				</div>
-				
+
 				<div id="social-media-icons">
 					<ul>
 						<li><a href="http://www.facebook.com"><img
