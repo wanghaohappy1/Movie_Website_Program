@@ -88,9 +88,7 @@
 				<h1>
 					Welcome
 					<%=request.getParameter("username")%></h1>
-				<p>Wlecome to our movie website. In this website you will find many movies that you like. Have a nice day and enjoy it!
-
-</p>
+				<p>Wlecome to our movie website. In this website you will find many movies that you like. Have a nice day and enjoy it!</p>
 				 <table style="clear:both; width:100%; text-align:center;padding:13px;">
 				 <th><h2>Hot</h2></th>						
 				 <tr>
