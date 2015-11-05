@@ -20,15 +20,16 @@ import model.UserDao;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	RequestDispatcher dispatcher = null;
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String dateOfBirth = request.getParameter("dateOfBirth");
 		String email = request.getParameter("email");
-		
+
 		UserDao userDao = new UserDao();
 		User user = new User();
 		user.setPassword(password);
@@ -37,32 +38,35 @@ public class UserServlet extends HttpServlet {
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		userDao.updateUser(username, user);
-		
+
 		dispatcher = request.getRequestDispatcher("UserProfile.jsp");
 		dispatcher.forward(request, response);
 	}
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserServlet() {
-        super();
-        
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserServlet() {
+		super();
+
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
-
 }
