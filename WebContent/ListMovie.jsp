@@ -8,7 +8,7 @@
 <link href="css/mystyle1.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div id="outer">
+	<div id="outer"> 
 		<div id="wrapper">
 			<div id="logo">
 				<img src="Image/movies.jpg" width=260px />
