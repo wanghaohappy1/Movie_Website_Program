@@ -1,10 +1,3 @@
-// Timothy Framework - www.timothyframework.com 
-
-// This work is licensed under the MIT License - http://www.opensource.org/licenses/mit-license.php
-
-// Developed By: Boban Karišik -> http://www.serie3.info/    Version: 1.0 - MIT Open License
-
-
 (function($){  
 
     $.fn.s3Slider = function(vars) {       
