@@ -11,16 +11,15 @@
 </head>
 <body>
 <%
-String id=request.getParameter("id");
-String movieName=request.getParameter("title"); 
-String username1=request.getParameter("username"); 
-//out.print(detail);
-int Id=Integer.parseInt(id); 
-MovieDao dao=new MovieDao();
-Movie movie=dao.getMovieForId(Id);
-ReviewDao reviewDao = new ReviewDao();
-List<Movie> movies=dao.listAllMovies();
-List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
+        String id=request.getParameter("id");
+        String movieName=request.getParameter("title"); 
+        String username1=request.getParameter("username"); 
+        int Id=Integer.parseInt(id); 
+        MovieDao dao=new MovieDao();
+        Movie movie=dao.getMovieForId(Id);
+        ReviewDao reviewDao = new ReviewDao();
+        List<Movie> movies=dao.listAllMovies();
+        List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
 %>
 
 <%
@@ -52,16 +51,16 @@ List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
 								src="Image/icons/youtube_32.png" /></a></li>
 					</ul>
 				</div>
-           <div id="topnav">
-				<ul>
-					<li><a href="<%=goDeveloper%>?username=<%=username1 %>">MYHOME</a></li>
-					<li><a href="ListMovie.jsp">MOVIE</a></li>
-					<li><a href="contact.jsp">CONTACT</a></li>
-					<li><a href="login.jsp">LOGIN</a></li>
-					<li><a href="UserProfile.jsp?username=<%=username1 %>">PROFILE</a></li>
+                                <div id="topnav">
+			         	<ul>
+			        		<li><a href="<%=goDeveloper%>?username=<%=username1 %>">MYHOME</a></li>
+			        		<li><a href="ListMovie.jsp">MOVIE</a></li>
+			        		<li><a href="contact.jsp">CONTACT</a></li>
+			        		<li><a href="login.jsp">LOGIN</a></li>
+			        		<li><a href="UserProfile.jsp?username=<%=username1 %>">PROFILE</a></li>
 					
-				</ul>
-			</div>
+			        	</ul>
+			        </div>
 				<table id="movieList" style="clear: both; width: 40%;">
 
 				</table>
@@ -69,24 +68,23 @@ List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
 				<table id="movieList1">
 
 				</table>
-<div id="review">
-	<%
-		for(Review review:reviews)
-		{
-			User user = review.getUser();
-			String username = user.getUsername();
-	
-	%>
-		<table style="width=36px; height=6px;text-align:center; ">
-		<tr style="border:1px solid;"><td><h3><%=username %>:<%=review.getReviews()%></h3></td></tr>
-		</table>
-	<%} %>
-	</div>
-	<br/>
+                                <div id="review">
+	                               <%
+		                       for (Review review : reviews)
+		                       {
+		                         	User user = review.getUser();
+		                         	String username = user.getUsername();
+	                               %>
+		                       <table style="width=36px; height=6px;text-align:center; ">
+	                                	<tr style="border:1px solid;"><td><h3><%=username %>:<%=review.getReviews()%></h3></td></tr>
+	                        	</table>
+                                   	<%} %>
+                           	</div>
+                 	        <br/>
 				<div id="comment" style="text-align: center;">
 					<textarea name="comment"
-						style="width: 600px; height: 100px; text-align: left;">
-	</textarea>
+						style="width: 600px; height: 100px; text-align: left;"> 
+				        </textarea>
 					<br /> <select name="stars" style="background-color: #0099FF;">
 						<option value="1">1 star</option>
 						<option value="2">2 star</option>
@@ -96,7 +94,6 @@ List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
 					</select>
 					<button name="action" value="comment">submit comment</button>
 					<br />
-
 				</div>
 			</div>
 			<input type="hidden" name="username"
@@ -107,11 +104,10 @@ List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
 	</form>
 
 	<script>
-				jQuery(init);
+		jQuery(init);
 
-				function init() {
-					var movieName = "<%=movie.getRottenTomatoesId()%>";
-
+		function init() {
+			var movieName = "<%=movie.getRottenTomatoesId()%>";
 			var key = "m88h3a3m37pbjpfx8ug9wtfb";
 
 			jQuery.ajax({
@@ -153,7 +149,7 @@ List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
 
 			var li = jQuery(liStr);
 			//li.find("button").attr("value", id);
-
+			
 			li.attr("id", id);
 			li.find("img").attr("src", thumbnail);
 			li.find(".year").html(year);
