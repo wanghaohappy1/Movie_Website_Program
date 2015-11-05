@@ -1,12 +1,5 @@
-/*
- * FeatureList - simple and easy creation of an interactive "Featured Items" widget
- * Examples and documentation at: http://jqueryglobe.com/article/feature_list/
- * Version: 1.0.0 (01/09/2009)
- * Copyright (c) 2009 jQueryGlobe
- * Licensed under the MIT License: http://en.wikipedia.org/wiki/MIT_License
- * Requires: jQuery v1.3+
-*/
-;(function($) {
+;
+(function($) {
 	$.fn.featureList = function(options) {
 		var tabs	= $(this);
 		var output	= $(options.output);
