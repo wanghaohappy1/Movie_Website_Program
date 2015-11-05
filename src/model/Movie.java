@@ -108,14 +108,12 @@ public class Movie implements Serializable {
 	public Cast addCast(Cast cast) {
 		getCasts().add(cast);
 		cast.setMovie(this);
-
 		return cast;
 	}
 
 	public Cast removeCast(Cast cast) {
 		getCasts().remove(cast);
 		cast.setMovie(null);
-
 		return cast;
 	}
 
@@ -130,15 +128,12 @@ public class Movie implements Serializable {
 	public Review addReview(Review review) {
 		getReviews().add(review);
 		review.setMovie(this);
-
 		return review;
 	}
 
 	public Review removeReview(Review review) {
 		getReviews().remove(review);
 		review.setMovie(null);
-
 		return review;
 	}
-
 }
