@@ -8,25 +8,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	User currentUser = (User)session.getAttribute("currentUser");
-	String username = currentUser.getUsername();
-	
-	UserDao userDao = new UserDao();
-	int userId = userDao.findUserId(username);
-	User user = userDao.getUser(userId);
-	boolean checkDeveloper = userDao.verifyDeveloper(currentUser);
-	String goDeveloper = "MovieUser.jsp";
-	if (checkDeveloper)
-	{
-		goDeveloper = "MovieDeveloper.jsp";
-	}
-%>
+	<%
+		User currentUser = (User) session.getAttribute("currentUser");
+		String username = currentUser.getUsername();
+
+		UserDao userDao = new UserDao();
+		int userId = userDao.findUserId(username);
+		User user = userDao.getUser(userId);
+		boolean checkDeveloper = userDao.verifyDeveloper(currentUser);
+		String goDeveloper = "MovieUser.jsp";
+		if (checkDeveloper) {
+			goDeveloper = "MovieDeveloper.jsp";
+		}
+	%>
 	<div id="outer">
 		<div id="wrapper">
 			<form action="UpdateServlet">
 				<div id="add">
-					<h1>create movie</h1><h6 style="float:right;"><a href="<%=goDeveloper%>?username=<%=username %>"><u>return</u></a></h6>
+					<h1>create movie</h1>
+					<h6 style="float: right;">
+						<a href="<%=goDeveloper%>?username=<%=username%>"><u>return</u></a>
+					</h6>
 					<table>
 						<tr>
 							<td><h2>title</h2></td>
@@ -63,7 +65,8 @@
 			<form action="UpdateServlet">
 				<div id="update">
 					<h1>update movie</h1>
-					<input type="hidden" name="id" value="<%=request.getParameter("id") %>" />
+					<input type="hidden" name="id"
+						value="<%=request.getParameter("id")%>" />
 					<table>
 						<tr>
 							<td><h2>title</h2></td>
