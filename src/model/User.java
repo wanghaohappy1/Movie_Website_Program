@@ -124,15 +124,12 @@ public class User implements Serializable {
 	public Review addReview(Review review) {
 		getReviews().add(review);
 		review.setUser(this);
-
 		return review;
 	}
 
 	public Review removeReview(Review review) {
 		getReviews().remove(review);
 		review.setUser(null);
-
 		return review;
 	}
-
 }
