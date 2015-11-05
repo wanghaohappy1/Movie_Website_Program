@@ -2,7 +2,7 @@
 
 	$yourEmail = "wang.hao4@husky.neu.edu"; // the email address you wish to receive these mails through
 	$yourWebsite = "MovieWebsite"; // the name of your website
-	$thanksPage = 'thankyou.html'; // URL to 'thanks for sending mail' page; leave empty to keep message on the same page 
+	$thanksPage = ''; // URL to 'thanks for sending mail' page; leave empty to keep message on the same page 
 	$maxPoints = 6; // max points a person can hit before it refuses to submit - recommend 4
 
 
