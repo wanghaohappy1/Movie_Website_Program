@@ -17,53 +17,59 @@ import model.*;
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	RequestDispatcher dispatcher = null;
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		MovieDao movieDao = new MovieDao();
-		if ("delete".equals(action)){
-			String id = request.getParameter("id");		
+		if ("delete".equals(action)) {
+			String id = request.getParameter("id");
 			int movieId = Integer.parseInt(id);
 			movieDao.deleteMovie(movieId);
 			dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 			dispatcher.forward(request, response);
-		} else if ("change".equals(action)){
+		} else if ("change".equals(action)) {
 			String id = request.getParameter("id");
-			String newId=request.getParameter("newIdd");
+			String newId = request.getParameter("newIdd");
 			int movieId = Integer.parseInt(id);
-			int movieNewId=Integer.parseInt(newId);
-			
+			int movieNewId = Integer.parseInt(newId);
+
 			movieDao.changeMovie(movieId, movieNewId);
 			dispatcher = request.getRequestDispatcher("MovieDeveloper.jsp");
 			dispatcher.forward(request, response);
-			 
-		} else if ("edit".equals(action)){
+
+		} else if ("edit".equals(action)) {
 			dispatcher = request.getRequestDispatcher("Update.jsp");
 			dispatcher.forward(request, response);
-		} else if ("description".equals(action)){
+		} else if ("description".equals(action)) {
 			dispatcher = request.getRequestDispatcher("MovieDetail.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public DeleteServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
