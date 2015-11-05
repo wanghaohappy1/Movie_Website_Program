@@ -89,6 +89,7 @@ public class ActorDao {
 		List<Movie> movies = new ArrayList<Movie>();
 		List<Cast> casts = new ArrayList<Cast>();
 		EntityManager em = factory.createEntityManager();
+		
 		em.getTransaction().begin();
 		Actor actor = em.find(Actor.class, actorId);
 		casts = actor.getCasts();
