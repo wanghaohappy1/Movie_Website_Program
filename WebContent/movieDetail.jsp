@@ -10,29 +10,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-        String id=request.getParameter("id");
-        String movieName=request.getParameter("title"); 
-        String username1=request.getParameter("username"); 
-        int Id=Integer.parseInt(id); 
-        MovieDao dao=new MovieDao();
-        Movie movie=dao.getMovieForId(Id);
-        ReviewDao reviewDao = new ReviewDao();
-        List<Movie> movies=dao.listAllMovies();
-        List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
-%>
+	<%
+		String id=request.getParameter("id");
+	        String movieName=request.getParameter("title"); 
+	        String username1=request.getParameter("username"); 
+	        int Id=Integer.parseInt(id); 
+	        MovieDao dao=new MovieDao();
+	        Movie movie=dao.getMovieForId(Id);
+	        ReviewDao reviewDao = new ReviewDao();
+	        List<Movie> movies=dao.listAllMovies();
+	        List<Review> reviews = reviewDao.listNReviewsForMovie(5,Id);
+	%>
 
-<%
-	UserDao userDao = new UserDao();
-	int userId = userDao.findUserId(username1);
-	User user1 = userDao.getUser(userId);
-	boolean checkDeveloper = userDao.verifyDeveloper(user1);
-	String goDeveloper = "MovieUser.jsp";
-	if (checkDeveloper)
-	{
-		goDeveloper = "MovieDeveloper.jsp";
-	}
-%>
+	<%
+		UserDao userDao = new UserDao();
+		int userId = userDao.findUserId(username1);
+		User user1 = userDao.getUser(userId);
+		boolean checkDeveloper = userDao.verifyDeveloper(user1);
+		String goDeveloper = "MovieUser.jsp";
+		if (checkDeveloper)
+		{
+			goDeveloper = "MovieDeveloper.jsp";
+		}
+	%>
 	<form action="ReviewServlet">
 		<div id="outer">
 			<div id="wrapper">
@@ -51,36 +51,40 @@
 								src="Image/icons/youtube_32.png" /></a></li>
 					</ul>
 				</div>
-                                <div id="topnav">
-			         	<ul>
-			        		<li><a href="<%=goDeveloper%>?username=<%=username1 %>">MYHOME</a></li>
-			        		<li><a href="ListMovie.jsp">MOVIE</a></li>
-			        		<li><a href="contact.jsp">CONTACT</a></li>
-			        		<li><a href="login.jsp">LOGIN</a></li>
-			        		<li><a href="UserProfile.jsp?username=<%=username1 %>">PROFILE</a></li>
-					
-			        	</ul>
-			        </div>
+				<div id="topnav">
+					<ul>
+						<li><a href="<%=goDeveloper%>?username=<%=username1%>">MYHOME</a></li>
+						<li><a href="ListMovie.jsp">MOVIE</a></li>
+						<li><a href="contact.jsp">CONTACT</a></li>
+						<li><a href="login.jsp">LOGIN</a></li>
+						<li><a href="UserProfile.jsp?username=<%=username1%>">PROFILE</a></li>
+
+					</ul>
+				</div>
 				<table id="movieList" style="clear: both; width: 40%;">
 
 				</table>
-				
+
 				<table id="movieList1">
 
 				</table>
-                                <div id="review">
-	                               <%
-		                       for (Review review : reviews)
-		                       {
-		                         	User user = review.getUser();
-		                         	String username = user.getUsername();
-	                               %>
-		                       <table style="width=36px; height=6px;text-align:center; ">
-	                                	<tr style="border:1px solid;"><td><h3><%=username %>:<%=review.getReviews()%></h3></td></tr>
-	                        	</table>
-                                   	<%} %>
-                           	</div>
-                 	        <br/>
+				<div id="review">
+					<%
+						for (Review review : reviews)
+							                       {
+							                         	User user = review.getUser();
+							                         	String username = user.getUsername();
+					%>
+					<table style="text-align: center;">
+						<tr style="border: 1px solid;">
+							<td><h3><%=username%>:<%=review.getReviews()%></h3></td>
+						</tr>
+					</table>
+					<%
+						}
+					%>
+				</div>
+				<br />
 				<div id="comment" style="text-align: center;">
 					<textarea name="comment"
 						style="width: 600px; height: 100px; text-align: left;"> 
@@ -98,8 +102,7 @@
 			</div>
 			<input type="hidden" name="username"
 				value="<%=request.getParameter("username")%>"></input> <input
-				type="hidden" name="movieId"
-				value="<%=request.getParameter("id")%>"></input>
+				type="hidden" name="movieId" value="<%=request.getParameter("id")%>"></input>
 		</div>
 	</form>
 
@@ -107,7 +110,8 @@
 		jQuery(init);
 
 		function init() {
-			var movieName = "<%=movie.getRottenTomatoesId()%>";
+			var movieName = "<%=movie.getRottenTomatoesId()%>
+		";
 			var key = "m88h3a3m37pbjpfx8ug9wtfb";
 
 			jQuery.ajax({
@@ -149,7 +153,7 @@
 
 			var li = jQuery(liStr);
 			//li.find("button").attr("value", id);
-			
+
 			li.attr("id", id);
 			li.find("img").attr("src", thumbnail);
 			li.find(".year").html(year);
