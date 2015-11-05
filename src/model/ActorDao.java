@@ -19,8 +19,7 @@ public class ActorDao {
 		em.close();
 	}
 	
-	public void createActor(Actor newActor)
-	{
+	public void createActor(Actor newActor) {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(newActor);
@@ -28,17 +27,18 @@ public class ActorDao {
 		em.close();
 	}
 	
-	public int findActorId(String actorname)
-	{
+	public int findActorId(String actorname) {
 		int actorId = 0;
 		List<Actor> actors = new ArrayList<Actor>();
 		EntityManager em = factory.createEntityManager();
+		
 		em.getTransaction().begin();
 		actors = getAllActors();
 		
 		for (Actor actor : actors) {
-			if (actor.getName().equals(actorname))
+			if (actor.getName().equals(actorname)) {
 				actorId = actor.getId();
+			}
 		}
 
 		em.getTransaction().commit();
@@ -46,8 +46,7 @@ public class ActorDao {
 		return actorId;				
 	}
 	
-	public void updateActor(Actor newActor, int actorId)
-	{
+	public void updateActor(Actor newActor, int actorId) {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 		
@@ -61,8 +60,7 @@ public class ActorDao {
 		em.close();
 	}
 	
-	public List<Actor> getAllActors()
-	{
+	public List<Actor> getAllActors() {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 
@@ -74,8 +72,7 @@ public class ActorDao {
 		return actors;
 	}
 	
-	public List<Cast> getCastForActor(int actorId)
-	{
+	public List<Cast> getCastForActor(int actorId) {
 		List<Cast> casts = new ArrayList<Cast>();
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
@@ -88,8 +85,7 @@ public class ActorDao {
 		return casts;
 	}
 	
-	public List<Movie> getMoviesForActor(int actorId)
-	{
+	public List<Movie> getMoviesForActor(int actorId) {
 		List<Movie> movies = new ArrayList<Movie>();
 		List<Cast> casts = new ArrayList<Cast>();
 		EntityManager em = factory.createEntityManager();
@@ -97,8 +93,7 @@ public class ActorDao {
 		Actor actor = em.find(Actor.class, actorId);
 		casts = actor.getCasts();
 		
-		for (Cast cast: casts)
-		{
+		for (Cast cast: casts) {
 			Movie movie = cast.getMovie();
 			movies.add(movie);
 		}
@@ -107,16 +102,4 @@ public class ActorDao {
 		em.close();
 		return movies;
 	}
-        
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		ActorDao dao = new ActorDao();
-		Actor actor1 = new Actor();
-		actor1.setName("justin bieber");
-		actor1.setRottenTomatoesId("222");
-		actor1.setId(2);
-		//dao.updateActor(actor1,2);
-		System.out.println(dao.findActorId(""));
-	}*/
-
 }
